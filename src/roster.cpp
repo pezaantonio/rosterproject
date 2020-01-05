@@ -29,4 +29,5 @@ int main()
 
     for (int i = 0; i < numElements; i++)
         cout << studentData[i] << endl;
+    
 }

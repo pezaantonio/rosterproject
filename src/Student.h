@@ -16,7 +16,7 @@ using namespace std;
 class Student
 {
 public:
-    Student(string firstName, string lastName, string studEmail, int studAge, int* daysLeft); //This is a parameterized constructor for the student class
+    Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft); //This is a parameterized constructor for the student class
 
     string getFirstName(); //This will get the first name of the student
     string getLastName(); //This will get the last name of the student
@@ -27,13 +27,42 @@ public:
 
 private:
     // These are the variables that are going to make up the student info
-    string ifirstName, ilastName, istudEmail;
+    string ifirstName, ilastName, istudEmail, istudID;
     int istudAge;
     int daysLeft[3];
 };
 
 
 // This is my parameterized constructor
-Student::Student(string firstName, string lastName, string studEmail, int studAge, int* daysLeft)
-    :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudAge(studAge), idaysLeft(daysLeft)
+Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft)
+    :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge), idaysLeft(daysLeft)
 {}
+
+/*
+    These are my member functions for my class. Each one is a getter and only returns
+    the associated value
+*/
+string Student::getFirstName()
+{
+    return ifirstName;
+}
+
+string Student::getLastName()
+{
+    return ilastName;
+}
+
+string Student::getEmail()
+{
+    return istudEmail;
+}
+
+string Student::getStudID()
+{
+    return istudID;
+}
+
+int Student::getAge()
+{
+    return istudAge;
+}

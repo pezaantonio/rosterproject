@@ -15,8 +15,7 @@ using namespace std;
 
 enum Degree
 {
-    Networking,
-    Security,
-    Software
-
+    NETWORKING,
+    SECURITY,
+    SOFTWARE
 };

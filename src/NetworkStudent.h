@@ -26,5 +26,5 @@ public:
     void print() override;
 
 private:
-    Degree degreeProgram;
+    Degree degreeProgram = NETWORKING;
 };

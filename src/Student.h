@@ -17,7 +17,9 @@ using namespace std;
 class Student
 {
 public:
+
     Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft); //This is a parameterized constructor for the student class
+    ~Student();
 
     string getFirstName(); //This will get the first name of the student
     string getLastName(); //This will get the last name of the student
@@ -29,14 +31,12 @@ public:
     virtual Degree getDegreeProgram();
     virtual void print();
 
-    ~Student();
-
-
 private:
     // These are the variables that are going to make up the student info
     string ifirstName, ilastName, istudEmail, istudID;
     int istudAge;
     int idaysLeft[3];
+    Degree degreeProgram;
 };
 
 
@@ -72,4 +72,9 @@ string Student::getStudID()
 int Student::getAge()
 {
     return istudAge;
+}
+
+void Student::print()
+{
+
 }

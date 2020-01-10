@@ -9,6 +9,12 @@
 */
 #include <iostream>
 #include <string>
+#include "Degree.h"
+#include "NetworkStudent.h"
+#include "SecurityStudent.h"
+#include "SoftwareStudent.h"
+#include "Student.h"
+#include "Roster.h"
 
 using namespace std;
 

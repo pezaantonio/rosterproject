@@ -76,5 +76,10 @@ int Student::getAge()
 
 void Student::print()
 {
+    cout << "test";
+}
 
+Degree Student::getDegreeProgram()
+{
+    return NETWORKING;
 }

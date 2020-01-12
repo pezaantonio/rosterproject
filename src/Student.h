@@ -81,5 +81,5 @@ void Student::print()
 
 Degree Student::getDegreeProgram()
 {
-    return NETWORKING;
+    return NETWORK;
 }

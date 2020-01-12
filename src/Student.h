@@ -18,6 +18,7 @@ class Student
 {
 public:
 
+    Student(); //This is the empty constructor to take no arguments
     Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft); //This is a parameterized constructor for the student class
     ~Student();
 
@@ -28,6 +29,8 @@ public:
     int getAge(); // This will get the age of the student
     int* getDays(); // This will get the days left
 
+    void setNumDays(int d0, int d1, int d2);
+
     virtual Degree getDegreeProgram();
     virtual void print();
 
@@ -36,50 +39,4 @@ private:
     string ifirstName, ilastName, istudEmail, istudID;
     int istudAge;
     int idaysLeft[3];
-    Degree degreeProgram;
 };
-
-
-// This is my parameterized constructor
-Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft)
-    :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge), idaysLeft()
-{}
-
-/*
-    These are my member functions for my class. Each one is a getter and only returns
-    the associated value
-*/
-string Student::getFirstName()
-{
-    return ifirstName;
-}
-
-string Student::getLastName()
-{
-    return ilastName;
-}
-
-string Student::getEmail()
-{
-    return istudEmail;
-}
-
-string Student::getStudID()
-{
-    return istudID;
-}
-
-int Student::getAge()
-{
-    return istudAge;
-}
-
-void Student::print()
-{
-    cout << "test";
-}
-
-Degree Student::getDegreeProgram()
-{
-    return NETWORK;
-}

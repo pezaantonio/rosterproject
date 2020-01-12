@@ -19,3 +19,11 @@ enum Degree
     SECURITY,
     SOFTWARE
 };
+
+//Parallel enumeration array of strings
+const string degreeProgram[] =
+{
+    "NETWORK",
+    "SECURITY",
+    "SOFTWARE"
+};

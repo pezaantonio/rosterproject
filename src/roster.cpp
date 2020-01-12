@@ -16,6 +16,8 @@
 #include "Student.h"
 #include "Roster.h"
 
+//
+
 using namespace std;
 
 int main()
@@ -36,4 +38,6 @@ int main()
     for (int i = 0; i < numElements; i++)
         cout << studentData[i] << endl;
     
+    //initializing roster class
+    Roster classRosterArray;
 }

@@ -20,12 +20,15 @@ public:
     Roster(); //Constructor takes no parameters
     ~Roster(); //Destructor
 
-    void printStud();
+    void printAll();
     void add();
     void remove();
-    void printDegree();
-    void printDays();
+    void printByDegreeProgram();
+    void printAverageDaysInCourse();
+    void printInvalidEmails();
+
 
 private:
-
+    // Declare an array of pointers
+    Student* classRosterArray[5];
 };

@@ -18,11 +18,12 @@ using namespace std;
 class softwareStudent : public Student
 {
 public:
-    softwareStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft);
+    softwareStudent();
+    softwareStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
 
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree degreeProgram = SOFTWARE;
+    Degree sdegreeProgram;
 };

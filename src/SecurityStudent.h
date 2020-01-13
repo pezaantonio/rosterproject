@@ -18,11 +18,12 @@ using namespace std;
 class securityStudent : public Student
 {
 public:
-    securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft);
+    securityStudent();
+    securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
     
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree degreeProgram = SECURITY;
+    Degree secdegreeProgram;
 };

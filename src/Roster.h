@@ -32,3 +32,10 @@ private:
     // Declare an array of pointers
     Student* classRosterArray[5];
 };
+
+Roster::Roster()
+{}
+
+Roster::~Roster()
+{}
+

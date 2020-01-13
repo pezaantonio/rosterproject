@@ -15,16 +15,15 @@
 
 using namespace std;
 
-using namespace std;
-
 class networkStudent : public Student
 {
 public:
-    networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft);
+    networkStudent();
+    networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
 
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree degreeProgram = NETWORK;
+    Degree ndegreeProgram;
 };

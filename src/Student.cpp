@@ -30,6 +30,11 @@ Student::Student(string firstName, string lastName, string studEmail, string stu
     :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge), idaysLeft()
 {}
 
+
+// This is my default destructor
+Student::~Student()
+{}
+
 /*
     These are my member functions for my class. Each one is a getter and only returns
     the associated value

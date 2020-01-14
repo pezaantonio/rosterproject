@@ -9,6 +9,7 @@
 */
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Degree.h"
 #include "NetworkStudent.h"
 #include "SecurityStudent.h"
@@ -16,7 +17,14 @@
 #include "Student.h"
 #include "Roster.h"
 
-//
+//Functions for roster.h
+void Roster::printAll()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        cout << this->classRosterArray[i] << endl;
+    }
+}
 
 using namespace std;
 
@@ -40,4 +48,10 @@ int main()
     
     //initializing roster class
     Roster classRosterArray;
+
+    classRosterArray.printAll();
+
+
+
+
 }

@@ -29,5 +29,8 @@ Degree softwareStudent::getDegreeProgram()
 
 void softwareStudent::print()
 {
-    cout << "test";
+    cout << "First Name: " << getFirstName() << endl;
+    cout << "Last Name: " << getLastName() << endl;
+    cout << "Age: " << getAge() << endl;
+    cout << "Degree Program: Software";;
 }

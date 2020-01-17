@@ -7,13 +7,14 @@
  *
  *
 */
-#include <iostream>
-#include <string>
-#pragma once
+#include <iostream> // Including to handle input output
+#include <string> // Including  to handle strings
+#pragma once // Including to only run once
 
-using namespace std;
+using namespace std; // Including to handle std::
 
-enum Degree
+//Enumeration for the Degree types
+enum Degree 
 {
     NETWORK,
     SECURITY,

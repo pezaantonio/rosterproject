@@ -16,18 +16,24 @@ using namespace std;
 networkStudent::networkStudent()
 {}
 
+// Parameterized and also setting the degreeProgram variable
 networkStudent::networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram)
     :Student(firstName, lastName, studEmail, studID, studAge, daysLeft)
 {
     degreeProgram = ndegreeProgram;
 }
 
+// Member function to return the degree program
 Degree networkStudent::getDegreeProgram()
 {
     return ndegreeProgram;
 }
 
+// Member function to print values
 void networkStudent::print()
 {
-    cout << "test";
+    cout << "First Name: " << getFirstName() << endl;
+    cout << "Last Name: " << getLastName() << endl;
+    cout << "Age: " << getAge() << endl;
+    cout << "Degree Program: Network";
 }

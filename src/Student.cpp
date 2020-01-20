@@ -17,7 +17,8 @@ using namespace std;
 //This is my empty constructor
 Student::Student()
 {
-    ifirstName = "";
+    // I'm initilizing all the string variables as blank strings and the one integer variable to 0
+    ifirstName = ""; 
     ilastName = "";
     istudEmail = "";
     istudID = "";

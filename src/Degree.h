@@ -16,15 +16,15 @@ using namespace std; // Including to handle std::
 //Enumeration for the Degree types
 enum Degree 
 {
-    NETWORK,
     SECURITY,
+    NETWORK,
     SOFTWARE
 };
 
 //Parallel enumeration array of strings
 const string degreeProgram[] =
 {
-    "NETWORK",
     "SECURITY",
+    "NETWORK",
     "SOFTWARE"
 };

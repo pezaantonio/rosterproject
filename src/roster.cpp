@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "Degree.h"
 #include "NetworkStudent.h"
 #include "SecurityStudent.h"
@@ -26,11 +27,16 @@ void Roster::printAll()
     }
 }
 
+void Roster::add()
+{
+
+}
+
 using namespace std;
 
 int main()
 {
-
+    string myDelimiter = ",";
     // This is a given constant array of string provided by the assignment. I added my info at the bottom per the instructions
     const string studentData[] =
     {
@@ -43,13 +49,24 @@ int main()
 
     int numElements = (sizeof(studentData) / sizeof(studentData[0]));
 
-    for (int i = 0; i < numElements; i++)
-        cout << studentData[i] << endl;
+    string token = ""; //Declaring an empty string called token to move things over
+
+    for (int j = 0; j < numElements; j++)
+    {
+        studentData[j];
+        token = studentData[j].substr(0, studentData->find(myDelimiter));
+        cout << token;
+    }
+    
+
+    /*for (int i = 0; i < numElements; i++)
+        cout << studentData[i] << endl;*/
     
     //initializing roster class
     Roster classRosterArray;
 
     classRosterArray.printAll();
+
 
 
 

@@ -19,11 +19,11 @@ class networkStudent : public Student
 {
 public:
     networkStudent();
-    networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
+    networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree);
 
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree ndegreeProgram;
+    Degree degree = NETWORK;
 };

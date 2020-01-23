@@ -13,27 +13,24 @@
 using namespace std;
 
 // The first constructor is blank, the second constructor is parameterized
-networkStudent::networkStudent()
+networkStudent::networkStudent():Student()
 {}
 
 // Parameterized and also setting the degreeProgram variable
-networkStudent::networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram)
-    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft)
+networkStudent::networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
+    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft, degree)
 {
-    degreeProgram = ndegreeProgram;
+    degree= NETWORK;
 }
 
 // Member function to return the degree program
 Degree networkStudent::getDegreeProgram()
 {
-    return ndegreeProgram;
+    return NETWORK;
 }
 
 // Member function to print values
 void networkStudent::print()
 {
-    cout << "First Name: " << getFirstName() << endl;
-    cout << "Last Name: " << getLastName() << endl;
-    cout << "Age: " << getAge() << endl;
     cout << "Degree Program: Network";
 }

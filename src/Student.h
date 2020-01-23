@@ -19,9 +19,10 @@ class Student
 public:
 
     Student(); //This is the empty constructor to take no arguments
-    Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft); //This is a parameterized constructor for the student class
+    Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree); //This is a parameterized constructor for the student class
     ~Student();
 
+    const static int daysArraySize = 3; //making this a constant static int for all the daysLeft
     string getFirstName(); //This will get the first name of the student
     string getLastName(); //This will get the last name of the student
     string getEmail(); //This will get the student's email
@@ -38,5 +39,6 @@ private:
     // These are the variables that are going to make up the student info
     string ifirstName, ilastName, istudEmail, istudID;
     int istudAge;
-    int idaysLeft[3];
+    int idaysLeft[daysArraySize];
+    Degree degree;
 };

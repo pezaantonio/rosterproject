@@ -13,24 +13,21 @@
 
 using namespace std;
 
-securityStudent::securityStudent()
+securityStudent::securityStudent():Student()
 {}
 
-securityStudent::securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram)
-    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft)
+securityStudent::securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
+    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft, degree)
 {
-    degreeProgram = secdegreeProgram;
+    degree = SECURITY;
 }
 
 Degree securityStudent::getDegreeProgram()
 {
-    return secdegreeProgram;
+    return SECURITY;
 }
 
 void securityStudent::print()
 {
-    cout << "First Name: " << getFirstName() << endl;
-    cout << "Last Name: " << getLastName() << endl;
-    cout << "Age: " << getAge() << endl;
     cout << "Degree Program: Security";
 }

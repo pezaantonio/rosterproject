@@ -19,11 +19,11 @@ class softwareStudent : public Student
 {
 public:
     softwareStudent();
-    softwareStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
+    softwareStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree);
 
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree sdegreeProgram;
+    Degree degree = SOFTWARE;
 };

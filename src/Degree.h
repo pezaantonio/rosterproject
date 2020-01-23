@@ -18,7 +18,8 @@ enum Degree
 {
     SECURITY,
     NETWORK,
-    SOFTWARE
+    SOFTWARE,
+    NONE
 };
 
 //Parallel enumeration array of strings
@@ -26,5 +27,6 @@ const string degreeProgram[] =
 {
     "SECURITY",
     "NETWORK",
-    "SOFTWARE"
+    "SOFTWARE",
+    "NONE"
 };

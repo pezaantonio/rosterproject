@@ -19,11 +19,11 @@ class securityStudent : public Student
 {
 public:
     securityStudent();
-    securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft, Degree degreeProgram);
+    securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree);
     
     Degree getDegreeProgram() override;
     void print() override;
 
 private:
-    Degree secdegreeProgram;
+    Degree degree = SECURITY;
 };

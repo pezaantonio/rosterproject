@@ -23,13 +23,17 @@ Student::Student()
     istudEmail = "";
     istudID = "";
     istudAge = 0;
+    for (int i = 0; i < daysArraySize; i++) this->idaysLeft[i] = 0;
 
 }
 
 // This is my parameterized constructor
-Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int* daysLeft)
-    :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge), idaysLeft()
-{}
+Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
+    :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge)
+{
+    for (int i = 0; i < daysArraySize; i++) this->idaysLeft[i] = daysLeft[i];
+    degree = NONE;
+}
 
 
 // This is my default destructor
@@ -65,6 +69,11 @@ int Student::getAge()
     return istudAge;
 }
 
+int* Student::getDays()
+{
+    return idaysLeft;
+}
+
 void Student::setNumDays(int d0, int d1, int d2)
 {
     idaysLeft[0] = d0;
@@ -74,10 +83,18 @@ void Student::setNumDays(int d0, int d1, int d2)
 
 void Student::print()
 {
-    cout << "test";
+    cout << "Printing student info: \n";
+    cout << "\t" << "First Name: " << ifirstName << endl;
+    cout << "\t" << "Last Name: " << ilastName << endl;
+    cout << "\t" << "Email: " << istudEmail << endl;
+    cout << "\t" << "Student ID: " << istudID << endl;
+    cout << "\t" << "Student Age: " << istudAge << endl;
+    cout << "\t" << "Days in Course 1: " << idaysLeft[0];
+    cout << "\t" << "Days in Course 1: " << idaysLeft[1];
+    cout << "\t" << "Days in Course 1: " << idaysLeft[2];
 }
 
 Degree Student::getDegreeProgram()
 {
-    return NETWORK;
+    return NONE;
 }

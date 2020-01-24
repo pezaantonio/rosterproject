@@ -19,6 +19,7 @@ class securityStudent : public Student
 {
 public:
     securityStudent();
+    ~securityStudent();
     securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree);
     
     Degree getDegreeProgram() override;

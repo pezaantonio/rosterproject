@@ -32,5 +32,11 @@ Degree networkStudent::getDegreeProgram()
 // Member function to print values
 void networkStudent::print()
 {
+    this->Student::print();
     cout << "Degree Program: Network";
+}
+
+networkStudent::~networkStudent()
+{
+    Student::~Student();
 }

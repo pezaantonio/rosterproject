@@ -10,7 +10,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <vector>
 #include "Degree.h"
 #include "NetworkStudent.h"
 #include "SecurityStudent.h"
@@ -20,16 +19,30 @@
 
 using namespace std;
 
-//Functions for roster.h
-void Roster::printAll()
+Roster::Roster()
 {
-    //This is a basic for loop to print all the values in the array starting with 0 and ending in 4
-    for (int i = 0; i < 5; i++)
+    this->capacity = capacity;
+    this->lastStudent = -1;//Means empty
+    this->classRosterArray = nullptr;
+}
+
+Roster::Roster(int capacity)
+{
+    this->capacity = capacity;
+    this->lastStudent = -1;
+    this->classRosterArray = new Student * [capacity];
+}
+
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram)
+{
+    int dayArray[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
+
+    if (degreeProgram == NETWORK)
     {
-        // I used this-> because classRosterArray is an array of pointers
-        cout << this->classRosterArray[i] << endl;
+        // classRosterArray[] = new NetworkStudent (studentID, firstName, lastName, emailAddress, age, dayArray, degreeProgram);
     }
 }
+//Functions for roster.h
 
 // This function is used to remove someone from an array and takes student ID as a parameter
 void Roster::remove(string studentID)
@@ -62,13 +75,15 @@ void Roster::printAverageDaysInCourse(string studentID)
         };
 }
 
-void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram)
+void Roster::parse(string studentDataLine)
 {
-    int dayArray[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
-
-    if (degreeProgram == NETWORK)
+    string token = ""; //Declaring an empty string called token to move things over
+    string myDelimiter = ","; // Declaring my delimiter so I can parse
+    int numElements = (sizeof(studentDataLine) / sizeof(studentDataLine[0])); // Creating my counter for number of elements
+    for (int j = 0; j < numElements; j++)
     {
-        classRosterArray[] = new NetworkStudent (studentID, firstName, lastName, emailAddress, age, dayArray, degreeProgram);
+        token = studentDataLine[j].substr(0, studentDataLine->find(myDelimiter));
+        cout << token;
     }
 }
 
@@ -82,10 +97,18 @@ void Roster::printByDegreeProgram(Degree degreeProgram)
 
 }
 
+void Roster::printAll()
+{
+    //This is a basic for loop to print all the values in the array starting with 0 and ending in 4
+    for (int i = 0; i < 5; i++)
+    {
+        // I used this-> because classRosterArray is an array of pointers
+        cout << this->classRosterArray[i] << endl;
+    }
+}
+
 int main()
 {
-    string token = ""; //Declaring an empty string called token to move things over
-    string myDelimiter = ","; // Declaring my delimiter so I can parse
     /*
         A.Modify the studentData table to include your personal information as the last item.
         This is a given constant array of string provided by the assignment. I added my info at the bottom per the instructions
@@ -98,31 +121,26 @@ int main()
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
         "A5,Antonio,Peza,apeza1@wgu.edu,25,60,60,60,SOFTWARE", 
     };
-    int numElements = (sizeof(studentData) / sizeof(studentData[0])); // Creating my counter for number of elements
-
-    for (int j = 0; j < numElements; j++)
-    {
-        studentData[j];
-        token = studentData[j].substr(0, studentData->find(myDelimiter));
-        cout << token;
-    }
-    
-
-    /*for (int i = 0; i < numElements; i++)
-        cout << studentData[i] << endl;*/
     
     //initializing roster class
     Roster classRoster;
 
-    classRoster.printAll();
+    classRoster.parse(studentData[0]);
+    classRoster.parse(studentData[1]);
+    classRoster.parse(studentData[2]);
+    classRoster.parse(studentData[3]);
+    classRoster.parse(studentData[4]);
+
+
+    /*classRoster.printAll();
 
     classRoster.printAll();
     classRoster.printInvalidEmails();
     //loop through classRosterArray and for each element:
-    classRoster.printAverageDaysInCourse(/*current_object's student id*/);
+    classRoster.printAverageDaysInCourse();
     classRoster.printByDegreeProgram(SOFTWARE);
     classRoster.remove("A3");
-    classRoster.remove("A3");
+    classRoster.remove("A3");*/
 
 
 

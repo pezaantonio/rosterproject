@@ -19,6 +19,7 @@ class softwareStudent : public Student
 {
 public:
     softwareStudent();
+    ~softwareStudent();
     softwareStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree);
 
     Degree getDegreeProgram() override;

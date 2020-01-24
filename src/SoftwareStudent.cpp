@@ -29,5 +29,11 @@ Degree softwareStudent::getDegreeProgram()
 
 void softwareStudent::print()
 {
+    this->Student::print();
     cout << "Degree Program: Software";;
+}
+
+softwareStudent::~softwareStudent()
+{
+    Student::~Student();
 }

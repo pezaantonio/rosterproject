@@ -16,6 +16,11 @@ using namespace std;
 securityStudent::securityStudent():Student()
 {}
 
+securityStudent::~securityStudent()
+{
+    Student::~Student();
+}
+
 securityStudent::securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
     :Student(firstName, lastName, studEmail, studID, studAge, daysLeft, degree)
 {
@@ -29,5 +34,6 @@ Degree securityStudent::getDegreeProgram()
 
 void securityStudent::print()
 {
+    this->Student::print();
     cout << "Degree Program: Security";
 }

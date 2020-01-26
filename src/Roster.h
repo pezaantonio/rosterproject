@@ -21,7 +21,7 @@ public:
     Roster(int capacity);
     ~Roster(); //Destructor
 
-    void parse(string studentDataLine);
+    void parseThenAdd(string studentDataLine);
     void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram);
     void printAll();
     void remove(string studentID);
@@ -34,8 +34,8 @@ public:
 private:
     // Declare an array of pointers
     Student** classRosterArray; //Since this is an array of pointeres, I used **
-    int lastStudent(); //last student in the roster, this records number of entries. will act as a counter
-    int capacity();
+    int lastStudent; //last student in the roster, this records number of entries. will act as a counter
+    int capacity;
 };
 
 Roster::~Roster()

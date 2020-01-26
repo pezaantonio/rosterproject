@@ -75,17 +75,31 @@ void Roster::printAverageDaysInCourse(string studentID)
         };
 }
 
-void Roster::parse(string studentDataLine)
+void Roster::parseThenAdd(string studentDataLine)
 {
-    string token = ""; //Declaring an empty string called token to move things over
-    string myDelimiter = ","; // Declaring my delimiter so I can parse
-    int numElements = (sizeof(studentDataLine) / sizeof(studentDataLine[0])); // Creating my counter for number of elements
-    for (int j = 0; j < numElements; j++)
+    if (lastStudent < capacity)
     {
-        token = studentDataLine[j].substr(0, studentDataLine->find(myDelimiter));
-        cout << token;
+        lastStudent++;
+        Degree degreeType;
+        
+        if (studentDataLine[8] == "NETWORK") = Degree NETWORK;
+        else if (studentDataLine[8] == "SECURITY") = Degree SECURITY;
+        else if (studentDataLine[8] == "SOFTWARE") = Degree SOFTWARE;
+        else
+        {
+            cerr << "Invalid";
+            exit(-1);
+        }
+
+        int temp = studentDataLine.find(","); // Searching for commas
+        string tempStudentID = studentDataLine.substr(0, temp); // storing the student ID in a temp substring
+
+        //looking for firstname
+        int temp2 = temp + 1;
+        temp = studentDataLine.substr(0)
+
     }
-}
+
 
 void Roster::printInvalidEmails()
 {
@@ -125,11 +139,10 @@ int main()
     //initializing roster class
     Roster classRoster;
 
-    classRoster.parse(studentData[0]);
-    classRoster.parse(studentData[1]);
-    classRoster.parse(studentData[2]);
-    classRoster.parse(studentData[3]);
-    classRoster.parse(studentData[4]);
+    for (int i = 0; i < 5; i++)
+    {
+        classRoster->parseThenAdd(studentData[1]);
+    }
 
 
     /*classRoster.printAll();

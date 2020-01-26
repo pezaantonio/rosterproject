@@ -18,7 +18,7 @@ class Roster
 {
 public:
     Roster(); //Constructor takes no parameters
-    Roster(int capacity)
+    Roster(int capacity);
     ~Roster(); //Destructor
 
     void parse(string studentDataLine);
@@ -37,9 +37,6 @@ private:
     int lastStudent(); //last student in the roster, this records number of entries. will act as a counter
     int capacity();
 };
-
-Roster::Roster()
-{}
 
 Roster::~Roster()
 {}

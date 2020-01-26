@@ -22,7 +22,7 @@ using namespace std;
 Roster::Roster()
 {
     this->capacity = capacity;
-    this->lastStudent = -1;//Means empty
+    this->lastStudent = -1; //Means empty
     this->classRosterArray = nullptr;
 }
 

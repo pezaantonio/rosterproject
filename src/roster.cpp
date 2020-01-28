@@ -35,20 +35,28 @@ Roster::Roster(int capacity)
 
 void Roster::parseThenAdd(string studentDataLine)
 {
-    if (lastStudent < capacity)
+    for (int i = 0; i < 5; i++)
+    {
+        string input = studentDataLine[i];
+        stringstream sdl(input);
+        string token;
+        string temp[9];
+
+    }
+    /*if (lastStudent < capacity)
     {
         lastStudent++;
-        Degree degreeType;
+        Student theStudent;
 
-        if (studentDataLine[8] == 'NE')
+        if (studentDataLine[8] == 'NETWORK')
         {
             degreeType = NETWORK;
         }
-        else if (studentDataLine[8] == 'SE')
+        else if (studentDataLine[8] == 'SECURITY')
         {
             degreeType = SECURITY;
         }
-        else if (studentDataLine[8] == 'SO')
+        else if (studentDataLine[8] == 'SOFTWARE')
         {
             degreeType = SOFTWARE;
         }
@@ -96,12 +104,19 @@ void Roster::parseThenAdd(string studentDataLine)
         int tempDay3 = stoi(studentDataLine.substr(lhs, rhs - lhs));
 
         add(tempStudID, tempFirstName, tempLastName, tempEmail, tempAge, tempDay1, tempDay2, tempDay3, degreeType);
-    }
+    }*/
 }
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram)
 {
-   int daysInCourse[]
+    int daysInCourse[Student::daysArraySize];
+    daysInCourse[0] = daysInCourse1;
+    daysInCourse[1] = daysInCourse2;
+    daysInCourse[3] = daysInCourse3;
+    if (degreeProgram == NETWORK)
+    {
+
+    }
 }
 //Functions for roster.h
 

@@ -35,10 +35,12 @@ public:
     virtual Degree getDegreeProgram();
     virtual void print();
 
+protected:
+    int idaysLeft[daysArraySize];
+
 private:
     // These are the variables that are going to make up the student info
     string ifirstName, ilastName, istudEmail, istudID;
     int istudAge;
-    int idaysLeft[daysArraySize];
     Degree degree;
 };

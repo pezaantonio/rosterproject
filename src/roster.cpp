@@ -33,14 +33,75 @@ Roster::Roster(int capacity)
     this->classRosterArray = new Student * [capacity];
 }
 
+void Roster::parseThenAdd(string studentDataLine)
+{
+    if (lastStudent < capacity)
+    {
+        lastStudent++;
+        Degree degreeType;
+
+        if (studentDataLine[8] == 'NE')
+        {
+            degreeType = NETWORK;
+        }
+        else if (studentDataLine[8] == 'SE')
+        {
+            degreeType = SECURITY;
+        }
+        else if (studentDataLine[8] == 'SO')
+        {
+            degreeType = SOFTWARE;
+        }
+        else
+        {
+            cerr << "Invalid";
+            exit(-1);
+        }
+
+        //looking for student ID
+        int rhs = studentDataLine.find(","); //int rhs is right hand side
+        string tempStudID = studentDataLine.substr(0, rhs);
+
+        //looking for first name
+        int lhs = rhs + 1; // int lhs is left hand side
+        rhs = studentDataLine.find(",", lhs);
+        string tempFirstName = studentDataLine.substr(lhs, rhs - lhs);
+
+        //looking for last Name
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        string tempLastName = studentDataLine.substr(lhs, rhs - lhs);
+
+        // looking for email
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        string tempEmail = studentDataLine.substr(lhs, rhs - lhs);
+
+        // looking for age
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        int tempAge = stoi(studentDataLine.substr(lhs, rhs - lhs));
+
+        //reading the days now
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        int tempDay1 = stoi(studentDataLine.substr(lhs, rhs - lhs));
+
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        int tempDay2 = stoi(studentDataLine.substr(lhs, rhs - lhs));
+
+        lhs = rhs + 1;
+        rhs = studentDataLine.find(",", lhs);
+        int tempDay3 = stoi(studentDataLine.substr(lhs, rhs - lhs));
+
+        add(tempStudID, tempFirstName, tempLastName, tempEmail, tempAge, tempDay1, tempDay2, tempDay3, degreeType);
+    }
+}
+
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram)
 {
-    int dayArray[] = { daysInCourse1, daysInCourse2, daysInCourse3 };
-
-    if (degreeProgram == NETWORK)
-    {
-        // classRosterArray[] = new NetworkStudent (studentID, firstName, lastName, emailAddress, age, dayArray, degreeProgram);
-    }
+   int daysInCourse[]
 }
 //Functions for roster.h
 
@@ -74,32 +135,6 @@ void Roster::printAverageDaysInCourse(string studentID)
             cout << "\n\n";
         };
 }
-
-void Roster::parseThenAdd(string studentDataLine)
-{
-    if (lastStudent < capacity)
-    {
-        lastStudent++;
-        Degree degreeType;
-        
-        if (studentDataLine[8] == "NETWORK") = Degree NETWORK;
-        else if (studentDataLine[8] == "SECURITY") = Degree SECURITY;
-        else if (studentDataLine[8] == "SOFTWARE") = Degree SOFTWARE;
-        else
-        {
-            cerr << "Invalid";
-            exit(-1);
-        }
-
-        int temp = studentDataLine.find(","); // Searching for commas
-        string tempStudentID = studentDataLine.substr(0, temp); // storing the student ID in a temp substring
-
-        //looking for firstname
-        int temp2 = temp + 1;
-        temp = studentDataLine.substr(0)
-
-    }
-
 
 void Roster::printInvalidEmails()
 {
@@ -141,7 +176,7 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        classRoster->parseThenAdd(studentData[1]);
+        classRoster->parseThenAdd(studentData[i]);
     }
 
 

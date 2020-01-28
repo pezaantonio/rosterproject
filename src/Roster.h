@@ -28,8 +28,6 @@ public:
     void printByDegreeProgram(Degree degreeProgram);
     void printAverageDaysInCourse(string studentID);
     void printInvalidEmails();
-    
-
 
 private:
     // Declare an array of pointers

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "Degree.h"
 #include "NetworkStudent.h"
 #include "SecurityStudent.h"
@@ -19,6 +20,7 @@
 
 using namespace std;
 
+//Functions for roster.h
 Roster::Roster()
 {
     this->capacity = capacity;
@@ -35,37 +37,52 @@ Roster::Roster(int capacity)
 
 void Roster::parseThenAdd(string studentDataLine)
 {
+    Degree studentDegreeProgram;
+
     for (int i = 0; i < 5; i++)
     {
-        string input = studentDataLine[i];
-        stringstream sdl(input);
-        string token;
-        string temp[9];
+        stringstream sdl(studentDataLine[i]);
 
-    }
+        vector <string> token;
+
+        while (sdl.good()) 
+        {
+            string substr;
+            getline(sdl, substr, ',');
+            token.push_back(substr);
+        }
+        if (token[8] == "NETWORK")
+        {
+            studentDegreeProgram = Degree::NETWORK;
+        }
+        if (token[8] == "SECURITY")
+        {
+            studentDegreeProgram = Degree::SECURITY;
+        }
+        if (token[8] == "SOFTWARE") 
+        {
+            studentDegreeProgram = Degree::SOFTWARE;
+        }
+        add(token[0], token[1], token[2], token[3], stoi(token[4]), stoi(token[5]), stoi(token[6]), stoi(token[7]), studentDegreeProgram);
+     
     /*if (lastStudent < capacity)
     {
         lastStudent++;
-        Student theStudent;
-
-        if (studentDataLine[8] == 'NETWORK')
+        Degree degreeType;
+        
+        if (studentDataLine[8] == "NETWORK")
         {
             degreeType = NETWORK;
         }
-        else if (studentDataLine[8] == 'SECURITY')
+        else if (studentDataLine[8] == "SECURITY")
         {
             degreeType = SECURITY;
         }
-        else if (studentDataLine[8] == 'SOFTWARE')
+        else if (studentDataLine[8] == "SOFTWARE")
         {
             degreeType = SOFTWARE;
         }
-        else
-        {
-            cerr << "Invalid";
-            exit(-1);
-        }
-
+        
         //looking for student ID
         int rhs = studentDataLine.find(","); //int rhs is right hand side
         string tempStudID = studentDataLine.substr(0, rhs);
@@ -103,8 +120,8 @@ void Roster::parseThenAdd(string studentDataLine)
         rhs = studentDataLine.find(",", lhs);
         int tempDay3 = stoi(studentDataLine.substr(lhs, rhs - lhs));
 
-        add(tempStudID, tempFirstName, tempLastName, tempEmail, tempAge, tempDay1, tempDay2, tempDay3, degreeType);
-    }*/
+        add(tempStudID, tempFirstName, tempLastName, tempEmail, tempAge, tempDay1, tempDay2, tempDay3);*/
+    }
 }
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreeProgram)
@@ -112,13 +129,21 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
     int daysInCourse[Student::daysArraySize];
     daysInCourse[0] = daysInCourse1;
     daysInCourse[1] = daysInCourse2;
-    daysInCourse[3] = daysInCourse3;
-    if (degreeProgram == NETWORK)
-    {
+    daysInCourse[2] = daysInCourse3;
 
+    if (degreeProgram == Degree::NETWORK)
+    {
+        classRosterArray[tempCounter++] = new networkStudent(studentID, firstName, lastName, emailAddress, age, daysInCourse, degreeProgram);
+    }
+    if (degreeProgram == Degree::SECURITY)
+    {
+        classRosterArray[tempCounter++] = new securityStudent(studentID, firstName, lastName, emailAddress, age, daysInCourse, degreeProgram);
+    }
+    if (degreeProgram == Degree::SOFTWARE)
+    {
+        classRosterArray[tempCounter++] = new softwareStudent(studentID, firstName, lastName, emailAddress, age, daysInCourse, degreeProgram);
     }
 }
-//Functions for roster.h
 
 // This function is used to remove someone from an array and takes student ID as a parameter
 void Roster::remove(string studentID)
@@ -138,17 +163,16 @@ void Roster::remove(string studentID)
 
 void Roster::printAverageDaysInCourse(string studentID)
 {
-    for (int q = 0; q < 5; q++)
-        if (this->classRosterArray[q]->getStudID() == studentID)
+    for (int i = 0; i < 5; i++) {
+        if ((*classRosterArray[i]).getStudID() == studentID) 
         {
-            int avgDays, daysAdded = 0;
-
-            daysAdded = ((this->classRosterArray[q]->getDays()[0] + this->classRosterArray[q]->getDays()[1] + this->classRosterArray[q]->getDays()[2]));
-            avgDays = daysAdded / 3;
-
-            cout << "Average days in course: " << avgDays;
-            cout << "\n\n";
-        };
+            int avg = 0;
+            avg = ((*classRosterArray[i]).getDays()[0] + (*classRosterArray[i]).getDays()[1]
+                + (*classRosterArray[i]).getDays()[2]) / 3;
+            cout << "The average days it took the student with studentID: " << studentID << " to finish 3 courses: " << avg << '\n';
+        }
+    }
+    cout << '\n';
 }
 
 void Roster::printInvalidEmails()
@@ -163,6 +187,7 @@ void Roster::printByDegreeProgram(Degree degreeProgram)
 
 void Roster::printAll()
 {
+    cout << "Roster: \n\n";
     //This is a basic for loop to print all the values in the array starting with 0 and ending in 4
     for (int i = 0; i < 5; i++)
     {
@@ -191,7 +216,7 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        classRoster->parseThenAdd(studentData[i]);
+        classRoster.parseThenAdd(studentData[i]);
     }
 
 

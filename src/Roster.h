@@ -29,6 +29,8 @@ public:
     void printAverageDaysInCourse(string studentID);
     void printInvalidEmails();
 
+    void tempCounter = 0;
+
 private:
     // Declare an array of pointers
     Student** classRosterArray; //Since this is an array of pointeres, I used **

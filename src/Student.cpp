@@ -28,11 +28,10 @@ Student::Student()
 }
 
 // This is my parameterized constructor
-Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
+Student::Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[])
     :ifirstName(firstName), ilastName(lastName), istudEmail(studEmail), istudID(studID), istudAge(studAge)
 {
     for (int i = 0; i < daysArraySize; i++) this->idaysLeft[i] = daysLeft[i];
-    degree = NONE;
 }
 
 
@@ -96,5 +95,5 @@ void Student::print()
 
 Degree Student::getDegreeProgram()
 {
-    return NONE;
+    return OTHER;
 }

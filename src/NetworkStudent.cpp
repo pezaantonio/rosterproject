@@ -18,7 +18,7 @@ networkStudent::networkStudent():Student()
 
 // Parameterized and also setting the degreeProgram variable
 networkStudent::networkStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
-    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft, degree)
+    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft)
 {
     degree= NETWORK;
 }

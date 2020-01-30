@@ -22,7 +22,7 @@ securityStudent::~securityStudent()
 }
 
 securityStudent::securityStudent(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree)
-    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft, degree)
+    :Student(firstName, lastName, studEmail, studID, studAge, daysLeft)
 {
     degree = SECURITY;
 }

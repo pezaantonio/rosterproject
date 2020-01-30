@@ -19,7 +19,7 @@ class Student
 public:
 
     Student(); //This is the empty constructor to take no arguments
-    Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[], Degree degree); //This is a parameterized constructor for the student class
+    Student(string firstName, string lastName, string studEmail, string studID, int studAge, int daysLeft[]); //This is a parameterized constructor for the student class
     ~Student();
 
     const static int daysArraySize = 3; //making this a constant static int for all the daysLeft

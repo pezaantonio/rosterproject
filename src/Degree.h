@@ -19,14 +19,14 @@ enum Degree
     SECURITY,
     NETWORK,
     SOFTWARE,
-    NONE
+    OTHER
 };
 
 //Parallel enumeration array of strings
-const string degreeProgram[] =
+static const string degreeProgram[] =
 {
     "SECURITY",
     "NETWORK",
     "SOFTWARE",
-    "NONE"
+    "OTHER"
 };

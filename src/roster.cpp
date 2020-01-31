@@ -43,7 +43,7 @@ void Roster::parseThenAdd(string studentDataLine)
     {
         stringstream sdl(studentDataLine[i]);
 
-        vector <string> token;
+        vector<string> token = {};
 
         while (sdl.good()) 
         {
@@ -51,6 +51,7 @@ void Roster::parseThenAdd(string studentDataLine)
             getline(sdl, substr, ',');
             token.push_back(substr);
         }
+
         if (token[8] == "NETWORK")
         {
             studentDegreeProgram = Degree::NETWORK;
@@ -62,6 +63,10 @@ void Roster::parseThenAdd(string studentDataLine)
         if (token[8] == "SOFTWARE") 
         {
             studentDegreeProgram = Degree::SOFTWARE;
+        }
+        else
+        {
+            studentDegreeProgram = Degree::OTHER;
         }
         add(token[0], token[1], token[2], token[3], stoi(token[4]), stoi(token[5]), stoi(token[6]), stoi(token[7]), studentDegreeProgram);
      
@@ -159,6 +164,10 @@ void Roster::remove(string studentID)
                 isRemoved = true; // Then change the boolean value to true to stop the function
             }
         }
+    if (!isRemoved)
+    {
+        cout << "The following student ID could not be found: " << studentID << "\n\n";
+    }
 }
 
 void Roster::printAverageDaysInCourse(string studentID)
@@ -182,7 +191,32 @@ void Roster::printInvalidEmails()
 
 void Roster::printByDegreeProgram(Degree degreeProgram)
 {
-
+    {
+        Degree temp = OTHER;
+        if (degreeProgram == NETWORK) 
+        {
+            temp = Degree::NETWORK;
+            cout << "Network students: \n";
+        }
+        if (degreeProgram == SECURITY) 
+        {
+            temp = Degree::SECURITY;
+            cout << "Security students: \n";
+        }
+        if (degreeProgram == SOFTWARE)
+        {
+            temp = Degree::SOFTWARE;
+            cout << "Software students: \n";
+        }
+        cout << endl;
+        for (int i = 0; i < 5; i++) {
+            if (temp == (*classRosterArray[i]).getDegreeProgram())
+            {
+                (*classRosterArray[i]).print();
+            }
+        }
+        cout << '\n';
+    }
 }
 
 void Roster::printAll()
@@ -196,8 +230,15 @@ void Roster::printAll()
     }
 }
 
+Roster::~Roster()
+{}
+
 int main()
 {
+    cout << "C867 - Scripting and Programming Applications\n";
+    cout << "Language: C++\n";
+    cout << "Programmer: Antonio Peza\n";
+    cout << "StudentID: #001174649";
     /*
         A.Modify the studentData table to include your personal information as the last item.
         This is a given constant array of string provided by the assignment. I added my info at the bottom per the instructions
@@ -220,15 +261,15 @@ int main()
     }
 
 
-    /*classRoster.printAll();
+    classRoster.printAll();
 
     classRoster.printAll();
     classRoster.printInvalidEmails();
     //loop through classRosterArray and for each element:
-    classRoster.printAverageDaysInCourse();
+    classRoster.printAverageDaysInCourse("A1");
     classRoster.printByDegreeProgram(SOFTWARE);
     classRoster.remove("A3");
-    classRoster.remove("A3");*/
+    classRoster.remove("A3");
 
 
 

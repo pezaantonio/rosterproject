@@ -83,11 +83,11 @@ void Student::setNumDays(int d0, int d1, int d2)
 void Student::print()
 {
     cout << "Printing student info: \n";
-    cout << "\t" << "First Name: " << ifirstName << endl;
-    cout << "\t" << "Last Name: " << ilastName << endl;
-    cout << "\t" << "Email: " << istudEmail << endl;
-    cout << "\t" << "Student ID: " << istudID << endl;
-    cout << "\t" << "Student Age: " << istudAge << endl;
+    cout << "\t" << "First Name: " << getFirstName() << endl;
+    cout << "\t" << "Last Name: " << getLastName() << endl;
+    cout << "\t" << "Email: " << getEmail() << endl;
+    cout << "\t" << "Student ID: " << getStudID() << endl;
+    cout << "\t" << "Student Age: " << getAge() << endl;
     cout << "\t" << "Days in Course 1: " << idaysLeft[0];
     cout << "\t" << "Days in Course 1: " << idaysLeft[1];
     cout << "\t" << "Days in Course 1: " << idaysLeft[2];

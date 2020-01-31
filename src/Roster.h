@@ -29,7 +29,7 @@ public:
     void printAverageDaysInCourse(string studentID);
     void printInvalidEmails();
 
-    void tempCounter = 0;
+    int tempCounter = 0;
 
 private:
     // Declare an array of pointers
@@ -37,7 +37,4 @@ private:
     int lastStudent; //last student in the roster, this records number of entries. will act as a counter
     int capacity;
 };
-
-Roster::~Roster()
-{}
 
